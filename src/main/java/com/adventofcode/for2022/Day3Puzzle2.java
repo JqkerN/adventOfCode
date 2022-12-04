@@ -67,7 +67,7 @@ public class Day3Puzzle2 {
             private final char[] secondElf;
             private final char[] thirdElf;
 
-            public ElfGroup(String firstElf, String secondElf, String thirdElf) {
+            private ElfGroup(String firstElf, String secondElf, String thirdElf) {
                 this.firstElf = new char[firstElf.length()];
                 this.secondElf = new char[secondElf.length()];
                 this.thirdElf = new char[thirdElf.length()];

@@ -65,7 +65,7 @@ public class Day3Puzzle1 {
             private final char[] leftCompartment;
             private final char[] rightCompartment;
 
-            public Rucksack(char[] leftCompartment, char[] rightCompartment) {
+            private Rucksack(char[] leftCompartment, char[] rightCompartment) {
                 this.leftCompartment = leftCompartment;
                 this.rightCompartment = rightCompartment;
             }

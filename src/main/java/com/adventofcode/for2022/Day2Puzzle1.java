@@ -52,7 +52,7 @@ public class Day2Puzzle1 {
                 return point;
             }
 
-            public static Move getMove(String move) {
+            private static Move getMove(String move) {
                 return switch (move) {
                     case "X", "A" -> ROCK;
                     case "Y", "B" -> PAPER;

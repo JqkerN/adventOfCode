@@ -76,11 +76,11 @@ public class Day2Puzzle2 {
                 this.point = point;
             }
 
-            public int getPoint() {
+            private int getPoint() {
                 return point;
             }
 
-            public static Move getMove(String move) {
+            private static Move getMove(String move) {
                 return switch (move) {
                     case "A" -> ROCK;
                     case "B" -> PAPER;

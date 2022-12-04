@@ -41,21 +41,21 @@ public class Day4Puzzle2 {
         }
     }
 
-    public static class AssignmentPair {
+    private static class AssignmentPair {
         private final Assignment firstElf;
         private final Assignment secondElf;
 
-        public AssignmentPair(Assignment firstElf, Assignment secondElf) {
+        private AssignmentPair(Assignment firstElf, Assignment secondElf) {
             this.firstElf = firstElf;
             this.secondElf = secondElf;
         }
     }
 
-    public static class Assignment {
+    private static class Assignment {
         private final int lowerSection;
         private final int upperSection;
 
-        public Assignment(String lowerSection, String upperSection) {
+        private Assignment(String lowerSection, String upperSection) {
             this.lowerSection = Integer.parseInt(lowerSection);
             this.upperSection = Integer.parseInt(upperSection);
         }
