@@ -1,0 +1,64 @@
+package main.java.com.adventofcode;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Day4Puzzle2 {
+    final static String fileName = "day_4_p1.txt";
+
+    public static void main(String[] args) throws IOException {
+        List<String> problem = PuzzleUtil.readProblem(fileName);
+        System.out.println("Solution to Day4Puzzle2 = " + Day1Puzzle1Solver.solve(problem));
+    }
+
+    public static class Day1Puzzle1Solver {
+
+
+        public static String solve(List<String> problem) {
+            int totalScore = 0;
+            List<AssignmentPair> assignmentPairs = parseProblem(problem);
+            for (AssignmentPair assignmentPair : assignmentPairs) {
+                totalScore += isFullyOverlapAssignments(assignmentPair.firstElf, assignmentPair.secondElf) ? 1 : 0;
+            }
+            return String.valueOf(totalScore);
+        }
+
+        private static boolean isFullyOverlapAssignments(Assignment assignment1, Assignment assignment2) {
+            return assignment1.upperSection >= assignment2.lowerSection
+                    && assignment1.lowerSection <= assignment2.upperSection;
+        }
+
+        private static List<AssignmentPair> parseProblem(List<String> problem) {
+            List<AssignmentPair> parsedProblem = new ArrayList<>();
+            for (String instructionsString : problem) {
+                String[] instructions = instructionsString.split(",");
+                String[] firstElf = instructions[0].split("-");
+                String[] secondElf = instructions[1].split("-");
+                parsedProblem.add(new AssignmentPair(new Assignment(firstElf[0], firstElf[1]), new Assignment(secondElf[0], secondElf[1])));
+            }
+            return parsedProblem;
+        }
+
+    }
+
+    public static class AssignmentPair {
+        private final Assignment firstElf;
+        private final Assignment secondElf;
+
+        public AssignmentPair(Assignment firstElf, Assignment secondElf) {
+            this.firstElf = firstElf;
+            this.secondElf = secondElf;
+        }
+    }
+
+    public static class Assignment {
+        private final int lowerSection;
+        private final int upperSection;
+
+        public Assignment(String lowerSection, String upperSection) {
+            this.lowerSection = Integer.parseInt(lowerSection);
+            this.upperSection = Integer.parseInt(upperSection);
+        }
+    }
+}
