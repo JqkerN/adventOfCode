@@ -1,4 +1,6 @@
-package main.java.com.adventofcode;
+package main.java.com.adventofcode.for2022;
+
+import main.java.com.adventofcode.PuzzleUtil;
 
 import java.io.IOException;
 import java.util.*;
@@ -8,10 +10,10 @@ public class Day1Puzzle2 {
 
     public static void main(String[] args) throws IOException {
         List<String> problem = PuzzleUtil.readProblem(fileName);
-        System.out.println("Solution to Day1Puzzle2 = " + Day1Puzzle2Solver.solve(problem));
+        System.out.println("Solution to Day1Puzzle2 = " + PuzzleSolver.solve(problem));
     }
 
-    public static class Day1Puzzle2Solver {
+    public static class PuzzleSolver {
         public static String solve(List<String> problem) {
             List<Integer> topElvCarrierCalories = getElvCarriersCalories(problem);
             int sumOfTopThreeCarriers = getSumOfTopCarriers(topElvCarrierCalories, 3);

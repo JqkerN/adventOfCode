@@ -1,4 +1,6 @@
-package main.java.com.adventofcode;
+package main.java.com.adventofcode.for2022;
+
+import main.java.com.adventofcode.PuzzleUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,12 +12,12 @@ public class Day3Puzzle2 {
 
     public static void main(String[] args) throws IOException {
         List<String> problem = PuzzleUtil.readProblem(fileName);
-        System.out.println("Solution to Day3Puzzle2 = " + Day1Puzzle1Solver.solve(problem));
+        System.out.println("Solution to Day3Puzzle2 = " + PuzzleSolver.solve(problem));
     }
 
-    public static class Day1Puzzle1Solver {
-        private final static byte lowercaseByteOffset = 96;
-        private final static byte uppercaseByteOffset = 38;
+    public static class PuzzleSolver {
+        private final static byte lowercaseOffset = 96;
+        private final static byte uppercaseOffset = 38;
 
         public static String solve(List<String> problem) {
             List<ElfGroup> elfGroups = parseProblem(problem);
@@ -29,7 +31,7 @@ public class Day3Puzzle2 {
 
         private static List<ElfGroup> parseProblem(List<String> problem) {
             List<ElfGroup> result = new ArrayList<>();
-            for (int i = 0; i < problem.size();) {
+            for (int i = 0; i < problem.size(); ) {
                 result.add(new ElfGroup(problem.get(i++), problem.get(i++), problem.get(i++)));
             }
             return result;
@@ -46,16 +48,16 @@ public class Day3Puzzle2 {
                 }
             }
             throw new RuntimeException(String.format("No shared item found firstElf [%s] secondElf [%s] thirdElf [%s]",
-                            Arrays.toString(firstElf),
-                            Arrays.toString(secondElf),
-                            Arrays.toString(thirdElf)));
+                    Arrays.toString(firstElf),
+                    Arrays.toString(secondElf),
+                    Arrays.toString(thirdElf)));
         }
 
         private static int getItemPriority(char item) {
-            if (item < lowercaseByteOffset) {
-                return item - uppercaseByteOffset;
+            if (item < lowercaseOffset) {
+                return item - uppercaseOffset;
             } else {
-                return item - lowercaseByteOffset;
+                return item - lowercaseOffset;
             }
         }
 
