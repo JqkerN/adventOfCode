@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,6 +21,7 @@ public class Day5Puzzle2 {
 
     public static class PuzzleSolver {
         private static final Pattern EXTRACT_INSTRUCTION_PATTERN = Pattern.compile("move (\\d{1,3}) from (\\d{1,3}) to (\\d{1,3})");
+        private static final IntFunction<Integer> CALCULATE_NEXT_CHAR_INDEX = (currentCharIndex) -> 1 + 4 * currentCharIndex;
 
         public static String solve(List<String> problem) {
             List<List<String>> stackAndInstructionProblem = splitProblem(problem);
@@ -59,7 +62,7 @@ public class Day5Puzzle2 {
             for (int i = problem.size() - 1; i >= 0; i--) {
                 String stackValues = problem.get(i);
                 for (int j = 0; j < stacks.size(); j++) {
-                    int index = 1 + 4 * j;
+                    int index = CALCULATE_NEXT_CHAR_INDEX.apply(j);
                     char item = stackValues.charAt(index);
                     if (item != ' ') {
                         stacks.get(j).push(item);
