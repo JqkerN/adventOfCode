@@ -14,7 +14,7 @@ public class Day5Puzzle2 {
 
     public static void main(String[] args) throws IOException {
         List<String> problem = PuzzleUtil.readProblem(fileName);
-        System.out.println("Solution to Day5Puzzle1 = " + PuzzleSolver.solve(problem));
+        System.out.println("Solution to Day5Puzzle2 = " + PuzzleSolver.solve(problem));
     }
 
     public static class PuzzleSolver {
