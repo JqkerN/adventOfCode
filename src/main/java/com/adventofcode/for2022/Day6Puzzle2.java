@@ -17,7 +17,7 @@ public class Day6Puzzle2 {
     public static class PuzzleSolver {
 
         public static String solve(List<String> problem) {
-            final var dataStream = parseProblem(problem);
+            var dataStream = parseProblem(problem);
             var markerIndex = findMarkerEndRecursive(dataStream, 0, 14);
             return String.valueOf(markerIndex);
         }
