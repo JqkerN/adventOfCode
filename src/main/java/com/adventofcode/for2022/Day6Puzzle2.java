@@ -31,11 +31,11 @@ public class Day6Puzzle2 {
         }
 
         private static boolean isMarker(List<String> dataStream, int position, int numOfLookAhead) {
-            var cache = new HashSet<>();
+            var uniqueMarkers = new HashSet<>();
             for (int offset = 0; offset < numOfLookAhead; offset++) {
-                cache.add(dataStream.get(position + offset));
+                uniqueMarkers.add(dataStream.get(position + offset));
             }
-            return cache.size() == numOfLookAhead;
+            return uniqueMarkers.size() == numOfLookAhead;
         }
 
         private static List<String> parseProblem(List<String> problem) {
