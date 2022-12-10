@@ -5,12 +5,12 @@ import main.java.com.adventofcode.PuzzleUtil;
 import java.io.IOException;
 import java.util.List;
 
-public class Day8Puzzle1 {
+public class Day8Puzzle2 {
     final static String fileName = "day_8_p1.txt";
 
     public static void main(String[] args) throws IOException {
         List<String> problem = PuzzleUtil.readProblem(fileName);
-        System.out.println("Solution to Day8Puzzle1 = " + PuzzleSolver.solve(problem));
+        System.out.println("Solution to Day8Puzzle2 = " + PuzzleSolver.solve(problem));
     }
 
     public static class PuzzleSolver {
@@ -22,54 +22,54 @@ public class Day8Puzzle1 {
         }
 
         private static int countVisibleTrees(int[][] trees) {
-            int count = 0;
+            int maxScenicScore = Integer.MIN_VALUE;
 
             for (int row = 0; row < trees.length; row++) {
                 for (int col = 0; col < trees[1].length; col++) {
-                    boolean isVisible1 = true;
-                    boolean isVisible2 = true;
-                    boolean isVisible3 = true;
-                    boolean isVisible4 = true;
+                    int longestDistance1 = 0;
+                    int longestDistance2 = 0;
+                    int longestDistance3 = 0;
+                    int longestDistance4 = 0;
+
                     int currentTreeHight = trees[row][col];
                     if (row == 0 || col == 0) {
-                        count++;
                         continue;
                     }
                     if (row == trees.length - 1 || col == trees[1].length - 1) {
-                        count++;
                         continue;
                     }
-                    for (int rowSearch = 0; rowSearch < row; rowSearch++) {
+                    for (int rowSearch = row - 1; rowSearch > -1; rowSearch--) {
+                        longestDistance1++;
                         if (currentTreeHight <= trees[rowSearch][col]) {
-                            isVisible1 = false;
                             break;
                         }
                     }
                     for (int rowSearch = row + 1; rowSearch < trees.length; rowSearch++) {
+                        longestDistance2++;
                         if (currentTreeHight <= trees[rowSearch][col]) {
-                            isVisible2 = false;
                             break;
                         }
                     }
-                    for (int colSearch = 0; colSearch < col; colSearch++) {
+                    for (int colSearch = col - 1; colSearch > -1; colSearch--) {
+                        longestDistance3++;
                         if (currentTreeHight <= trees[row][colSearch]) {
-                            isVisible3 = false;
                             break;
                         }
                     }
                     for (int colSearch = col + 1; colSearch < trees[1].length; colSearch++) {
+                        longestDistance4++;
                         if (currentTreeHight <= trees[row][colSearch]) {
-                            isVisible4 = false;
                             break;
                         }
                     }
-                    if (isVisible1 || isVisible2 || isVisible3 || isVisible4) {
-                        count++;
+                    int currentScenicScore = longestDistance1 * longestDistance2 * longestDistance3 * longestDistance4;
+                    if (maxScenicScore < currentScenicScore) {
+                        maxScenicScore = currentScenicScore;
                     }
                 }
             }
 
-            return count;
+            return maxScenicScore;
         }
 
         private static int[][] parseProblem(List<String> problem) {
