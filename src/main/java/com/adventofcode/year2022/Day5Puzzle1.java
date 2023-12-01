@@ -1,21 +1,19 @@
-package main.java.com.adventofcode.for2022;
+package main.java.com.adventofcode.year2022;
 
 import main.java.com.adventofcode.PuzzleUtil;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 import java.util.function.IntFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Day5Puzzle2 {
+public class Day5Puzzle1 {
     final static String fileName = "day_5_p1.txt";
 
     public static void main(String[] args) throws IOException {
         List<String> problem = PuzzleUtil.readProblem("2022", fileName);
-        System.out.println("Solution to Day5Puzzle2 = " + PuzzleSolver.solve(problem));
+        System.out.println("Solution to Day5Puzzle1 = " + PuzzleSolver.solve(problem));
     }
 
     public static class PuzzleSolver {
@@ -89,12 +87,8 @@ public class Day5Puzzle2 {
         }
 
         private static void applyInstruction(List<Stack<Character>> stacks, Instruction instruction) {
-            Stack<Character> crateMover9001Feature = new Stack<>();
             for (int ignored = 0; ignored < instruction.quantity; ignored++) {
-                crateMover9001Feature.push(stacks.get(instruction.from).pop());
-            }
-            while (!crateMover9001Feature.isEmpty()) {
-                stacks.get(instruction.to).push(crateMover9001Feature.pop());
+                stacks.get(instruction.to).push(stacks.get(instruction.from).pop());
             }
         }
 

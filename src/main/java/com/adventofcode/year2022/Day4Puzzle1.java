@@ -1,4 +1,4 @@
-package main.java.com.adventofcode.for2022;
+package main.java.com.adventofcode.year2022;
 
 import main.java.com.adventofcode.PuzzleUtil;
 
@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day4Puzzle2 {
+public class Day4Puzzle1 {
     final static String fileName = "day_4_p1.txt";
 
     public static void main(String[] args) throws IOException {
         List<String> problem = PuzzleUtil.readProblem("2022", fileName);
-        System.out.println("Solution to Day4Puzzle2 = " + PuzzleSolver.solve(problem));
+        System.out.println("Solution to Day4Puzzle1 = " + PuzzleSolver.solve(problem));
     }
 
     public static class PuzzleSolver {
@@ -25,8 +25,11 @@ public class Day4Puzzle2 {
         }
 
         private static boolean isFullyOverlapAssignments(Assignment assignment1, Assignment assignment2) {
-            return assignment1.upperSection >= assignment2.lowerSection
-                    && assignment1.lowerSection <= assignment2.upperSection;
+            boolean overlap1 = assignment1.lowerSection <= assignment2.lowerSection
+                    && assignment1.upperSection >= assignment2.upperSection;
+            boolean overlap2 = assignment2.lowerSection <= assignment1.lowerSection
+                    && assignment2.upperSection >= assignment1.upperSection;
+            return overlap1 || overlap2;
         }
 
         private static List<AssignmentPair> parseProblem(List<String> problem) {

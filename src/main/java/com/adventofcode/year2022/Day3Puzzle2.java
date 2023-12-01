@@ -1,4 +1,4 @@
-package main.java.com.adventofcode.for2022;
+package main.java.com.adventofcode.year2022;
 
 import main.java.com.adventofcode.PuzzleUtil;
 

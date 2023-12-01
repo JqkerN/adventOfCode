@@ -1,23 +1,24 @@
-package main.java.com.adventofcode.for2022;
+package main.java.com.adventofcode.year2022;
 
 import main.java.com.adventofcode.PuzzleUtil;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
 
-public class Day6Puzzle1 {
+public class Day6Puzzle2 {
     final static String fileName = "day_6_p1.txt";
 
     public static void main(String[] args) throws IOException {
         List<String> problem = PuzzleUtil.readProblem("2022", fileName);
-        System.out.println("Solution to Day6Puzzle1 = " + PuzzleSolver.solve(problem));
+        System.out.println("Solution to Day6Puzzle2 = " + PuzzleSolver.solve(problem));
     }
 
     public static class PuzzleSolver {
 
         public static String solve(List<String> problem) {
             var dataStream = parseProblem(problem);
-            var markerIndex = findMarkerEndRecursive(dataStream, 0, 4);
+            var markerIndex = findMarkerEndRecursive(dataStream, 0, 14);
             return String.valueOf(markerIndex);
         }
 

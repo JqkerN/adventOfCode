@@ -10,7 +10,7 @@ public class PuzzleUtil {
     final static String resourceRelativePath = "src/resources";
 
     public static List<String> readProblem(String year, String inputFileName) throws IOException {
-        Path inputFilePath = Paths.get(resourceRelativePath, "for%s/%s".formatted(year, inputFileName));
+        Path inputFilePath = Paths.get(resourceRelativePath, "year%s/%s".formatted(year, inputFileName));
         return Files.readAllLines(inputFilePath);
     }
 }
