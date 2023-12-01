@@ -9,7 +9,7 @@ public class Day2Puzzle2 {
     final static String fileName = "day_2_p1.txt";
 
     public static void main(String[] args) throws IOException {
-        List<String> problem = PuzzleUtil.readProblem(fileName);
+        List<String> problem = PuzzleUtil.readProblem("2022", fileName);
         System.out.println("Solution to Day2Puzzle2 = " + PuzzleSolver.solve(problem));
     }
 

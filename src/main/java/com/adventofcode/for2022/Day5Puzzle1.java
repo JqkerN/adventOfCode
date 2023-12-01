@@ -4,9 +4,6 @@ import main.java.com.adventofcode.PuzzleUtil;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
 import java.util.function.IntFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +12,7 @@ public class Day5Puzzle1 {
     final static String fileName = "day_5_p1.txt";
 
     public static void main(String[] args) throws IOException {
-        List<String> problem = PuzzleUtil.readProblem(fileName);
+        List<String> problem = PuzzleUtil.readProblem("2022", fileName);
         System.out.println("Solution to Day5Puzzle1 = " + PuzzleSolver.solve(problem));
     }
 

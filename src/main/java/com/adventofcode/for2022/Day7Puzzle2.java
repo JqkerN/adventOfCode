@@ -7,13 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiPredicate;
-import java.util.function.IntPredicate;
 
 public class Day7Puzzle2 {
     final static String fileName = "day_7_p1.txt";
 
     public static void main(String[] args) throws IOException {
-        List<String> problem = PuzzleUtil.readProblem(fileName);
+        List<String> problem = PuzzleUtil.readProblem("2022", fileName);
         System.out.println("Solution to Day7Puzzle2 = " + PuzzleSolver.solve(problem));
     }
 
