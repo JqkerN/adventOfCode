@@ -7,10 +7,10 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class PuzzleUtil {
-    final static String resourceRelativePath = "src/resources";
+    private final static String RESOURCE_RELATIVE_PATH = "src/resources";
 
     public static List<String> readProblem(String year, String inputFileName) throws IOException {
-        Path inputFilePath = Paths.get(resourceRelativePath, "year%s/%s".formatted(year, inputFileName));
+        Path inputFilePath = Paths.get(RESOURCE_RELATIVE_PATH, "year%s/%s".formatted(year, inputFileName));
         return Files.readAllLines(inputFilePath);
     }
 }
