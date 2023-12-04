@@ -7,12 +7,12 @@ import main.java.com.adventofcode.PuzzleUtil
  */
 fun main() {
     val problem = PuzzleUtil.readProblem("2023", "day_X.txt")
-    val puzzleSolution = Day3Puzzle1().solvePuzzle(problem)
+    val puzzleSolution = DayXPuzzleY().solvePuzzle(problem)
     println("Puzzle Y solution: %s".format(puzzleSolution))
 }
 
 class DayXPuzzleY {
-    fun solvePuzzle(gameRecords: List<String>): Int {
+    fun solvePuzzle(puzzleInput: List<String>): Int {
         return -1
     }
 }
