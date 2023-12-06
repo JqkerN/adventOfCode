@@ -21,7 +21,6 @@ class Day6Puzzle2 {
 
     private fun getMaxRoot(r1: Double, r2: Double): Double {
         var max = max(r1, r2)
-        println(max.toBigDecimal().toPlainString())
         if (max.rem(1).equals(0.0)) {
             max -= 0.1
         }
@@ -30,7 +29,6 @@ class Day6Puzzle2 {
 
     private fun getMinRoot(r1: Double, r2: Double): Double {
         var min = min(r1, r2)
-        println(min.toBigDecimal().toPlainString())
         if (min.rem(1).equals(0.0)) {
             min += 0.1
         }
