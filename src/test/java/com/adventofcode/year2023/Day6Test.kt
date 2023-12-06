@@ -33,4 +33,17 @@ internal class Day6Test {
 
         assertEquals(71503, solution)
     }
+
+    @Test
+    fun shouldSolvePuzzle2WithMathGivenExampleProblem() {
+        val testProblem = TestProblemReader().getTestProblemInput(
+            """
+                Time:      7  15   30
+                Distance:  9  40  200
+            """
+        )
+        val solution = Day6Puzzle2().solvePuzzleWithMath(testProblem)
+
+        assertEquals(71503, solution)
+    }
 }
