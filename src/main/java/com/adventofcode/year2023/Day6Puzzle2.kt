@@ -1,9 +1,7 @@
 package main.java.com.adventofcode.year2023
 
 import main.java.com.adventofcode.PuzzleUtil
-import java.lang.Math.*
-import kotlin.math.pow
-import kotlin.math.sqrt
+import kotlin.math.*
 
 fun main() {
     val problem = PuzzleUtil.readProblem("2023", "day_6.txt")
@@ -18,9 +16,25 @@ class Day6Puzzle2 {
         val time = numberRegex.find(puzzleInput[0])!!.value.replace("\\s".toRegex(), "").toFloat()
         val distance = numberRegex.find(puzzleInput[1])!!.value.replace("\\s".toRegex(), "").toFloat()
         val roots = pqFormula(-time, distance)
-        val max = floor(max(roots.first, roots.second))
-        val min = ceil(min(roots.first, roots.second))
-        return (max - min + 1).toLong()
+        return (getMaxRoot(roots.first, roots.second) - getMinRoot(roots.first, roots.second) + 1).toLong()
+    }
+
+    private fun getMaxRoot(r1: Double, r2: Double): Double {
+        var max = max(r1, r2)
+        println(max.toBigDecimal().toPlainString())
+        if (max.rem(1).equals(0.0)) {
+            max -= 0.1
+        }
+        return floor(max)
+    }
+
+    private fun getMinRoot(r1: Double, r2: Double): Double {
+        var min = min(r1, r2)
+        println(min.toBigDecimal().toPlainString())
+        if (min.rem(1).equals(0.0)) {
+            min += 0.1
+        }
+        return ceil(min)
     }
 
     fun pqFormula(p: Float, q: Float): Pair<Double, Double> {
